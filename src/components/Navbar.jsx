@@ -2,8 +2,8 @@
 
 export default function Navbar () {
     return (
-        <div>
-            
+        <div className="w-full bg-red-500">
+            Navbar
         </div>
     )
 }
