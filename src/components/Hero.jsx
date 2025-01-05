@@ -2,8 +2,8 @@
 
 export default function Hero () {
     return (
-        <div id="hero" className="relative w-full h-screen flex">
-            <div className="relative top-[28vh]">
+        <div  className=" w-full flex">
+            <div className=" my-52">
                 <p className="text-[2em] font-medium"> <span className="text-[#FD6F00]">Hello</span> , I'm</p>
                 <h1 className=" font-bold mt-[-10px] text-[4em]">Bhavya gupta</h1>
                 <p className="opacity-[0.8] mt- w-[400px]">Fullstack Web Developer, ui/ux designer and a enthusiast freelancer. For making your online presence reach me today!</p>

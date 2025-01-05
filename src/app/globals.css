@@ -8,6 +8,14 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-#hero {
-  height: calc(100vh - 50px)
+.cardlinearbg{
+  background: linear-gradient(
+  to right, 
+  #080A10 7%, 
+  #1D2029 34%, 
+  #0E1016 57%, 
+  #262A36 85%, 
+  #06080C 100%
+);
+
 }
