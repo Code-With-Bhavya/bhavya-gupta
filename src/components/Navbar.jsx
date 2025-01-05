@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 export default function Navbar () {
     return (
-        <nav className="w-full bg-red-500 h-[50px] flex justify-between items-center">
+        <nav className="w-full h-[50px] flex justify-between items-center">
             {/* Logo */}
-            <h1><span>&lt;</span> CodeWithBhavya <span>/&gt;</span></h1>
+            <h1 className='font-semibold text-[1.2em] text-[#FD6F00]'><span className='text-white'>&lt;</span> CodeWithBhavya <span className='text-white'>/&gt;</span></h1>
 
             {/* Links */}
             <div className='flex gap-6'>
