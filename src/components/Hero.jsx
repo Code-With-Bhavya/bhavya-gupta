@@ -1,7 +1,9 @@
 
 
-export default function Home () {
+export default function Hero () {
     return (
-        <>Home</>
+        <div className="w-screen h-screen mx-[100px]">
+            
+        </div>
     )
 }
