@@ -4,7 +4,7 @@ import Skills from '@/components/Skills'
 
 export default function Home() {
   return (
-    <div className='w-full px-[100px]'>
+    <div className='relative w-full px-[160px]'>
       <Navbar/>
       <Hero/>
       <Skills/>

@@ -2,6 +2,8 @@
 
 export default function Skills () {
     return (
-        <>Skills</>
+        <div className="w-full h-screen bg-red-800">
+            Skills
+        </div>
     )
 }

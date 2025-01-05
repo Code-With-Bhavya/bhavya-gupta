@@ -2,6 +2,8 @@
 
 export default function Hero () {
     return (
-        <>Hero</>
+        <div id="hero" className="w-full bg-red-400">
+            Hero
+        </div>
     )
 }
