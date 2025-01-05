@@ -30,15 +30,15 @@ export default function Skills() {
             Skills
 
             <div className="flex gap-3 "> {/* TABS */}
-                <div className={`px-2 py-1 ${currenttab === 1 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-l-2xl rounded-r-none `}
+                <div className={`px-2 py-1 ${currenttab === 1 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-l-2xl rounded-r-none cursor-pointer`}
                     onClick={() => { setCurrenttab(1) }}
                 >Frontend</div>
 
-                <div className={`px-2 py-1 ${currenttab === 2 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-none`}
+                <div className={`px-2 py-1 ${currenttab === 2 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-none cursor-pointer`}
                     onClick={() => { setCurrenttab(2) }}
                 >Backend</div>
 
-                <div className={`px-2 py-1 ${currenttab === 3 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-l-none rounded-r-2xl `}
+                <div className={`px-2 py-1 ${currenttab === 3 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-l-none rounded-r-2xl cursor-pointer`}
                     onClick={() => { setCurrenttab(3) }}
                 >Libraries</div>
             </div>
