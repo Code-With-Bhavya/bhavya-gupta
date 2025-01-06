@@ -3,19 +3,29 @@
 @tailwind utilities;
 
 body {
-  background-color: #03050C;
+  background-color: #03050c;
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-.cardlinearbg{
+.cardlinearbg {
+  height: 284px;
+  width: 300px;
   background: linear-gradient(
-  to right, 
-  #080A10 7%, 
-  #1D2029 34%, 
-  #0E1016 57%, 
-  #262A36 85%, 
-  #06080C 100%
-);
-
+    135deg, /* Adjusted angle to align the gradient properly */
+    #1d2029, /* Starting color */
+    #080a10 50%, /* Midpoint color */
+    #262a36 /* Ending color */
+  );
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Drop shadow effect */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Text color */
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
+
+
+.grayscale {
+  filter: invert(100%) grayscale(100%) contrast(100%);}
