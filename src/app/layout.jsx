@@ -1,12 +1,12 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import MatterSimulation from "@/components/matter";
 
 const poppins = Poppins({
   variable: "--font-Poppins",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"]
 });
-
 
 export const metadata = {
   title: "Bhavya Gupta || Portfolio",
@@ -16,10 +16,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.variable} antialiased`}
-      >
-        {children}
+      <body className={`${poppins.variable} antialiased`}>
+        <MatterSimulation />
+        <div className="relative z-10 pointer-events-none">
+          {children}
+        </div>
       </body>
     </html>
   );

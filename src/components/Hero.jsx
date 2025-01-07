@@ -5,20 +5,21 @@ import Link from "next/link"
 
 export default function Hero() {
     return (
-        <div className=" w-full flex justify-between items-center">
+        <div className=" w-full flex justify-between items-center bg-transparent">
             <div className=" my-52">
-                <p className="text-[2em] font-medium"> <span className="text-[#FD6F00]">Hello</span> , I'm</p>
-                <h1 className=" font-bold mt-[-10px] text-[4em]">Bhavya gupta</h1>
-                <p className="opacity-[0.8] mt- w-[400px]">Fullstack Web Developer, ui/ux designer and a enthusiast freelancer. For making your online presence reach me today!</p>
+                <div className="text-[2em] font-medium flex gap-1"> 
+                    <div className="text-[#FD6F00] hover:scale-105 transition-all ease-linear hover:text-white pointer-events-auto">Hello</div> , I'm</div>
+                <h1 className=" font-bold mt-[-10px] text-[4em] hover:scale-105 transition-all ease-linear hover:text-[#FD6F00] pointer-events-auto">Bhavya gupta</h1>
+                <p className="opacity-[0.8] mt- w-[400px] hover:scale-105 transition-all ease-linear hover:text-[#FD6F00] pointer-events-auto">Fullstack Web Developer, ui/ux designer and a enthusiast freelancer. For making your online presence reach me today!</p>
 
-                <button className="py-2 px-6 font-medium bg-[#FD6F00] rounded-[2px] mt-8">Hire Me</button>
+                <Link href={'https://www.fiverr.com/s/dDW9542'}><button className="py-2 px-6 font-medium bg-[#FD6F00] pointer-events-auto rounded-[2px] mt-8 hover:scale-105 transition-all ease-in-out delay-50 hover:bg-white hover:text-[#FD6F00]">Hire Me</button></Link>
             </div>
 
-            <div className="flex flex-col gap-3">
-                <Link href={'#'}><Image src="/facebooklogo.svg" width={28} className="cursor-pointer" height={500} alt="hero" /></Link>
-                <Link href={'#'}><Image src="/twitterlogo.svg" width={28} className="cursor-pointer" height={500} alt="twitter" /></Link>
-                <Link href={'#'}><Image src="/instalogo.svg" width={28} className="cursor-pointer" height={500} alt="insta" /></Link>
-                <Link href={'#'}><Image src="/linkedinlogo.svg" width={28} className="cursor-pointer" height={500} alt="linkedin" /></Link>
+            <div className="flex flex-col gap-3 items-center justify-center">
+                <Link className="hover:scale-110 hover:shadow-2xl pointer-events-auto transition-all ease-linear" href={'https://github.com/Code-With-Bhavya'}><Image src="/githublogo.svg" width={35} className="cursor-pointer" height={500} alt="github" /></Link>
+                <Link className="hover:scale-110 hover:shadow-2xl pointer-events-auto transition-all ease-linear" href={'https://x.com/Gupta_Bhavya_'}><Image src="/twitterlogo.svg" width={28} className="cursor-pointer" height={500} alt="twitter" /></Link>
+                <Link className="hover:scale-110 hover:shadow-2xl pointer-events-auto transition-all ease-linear" href={'https://t.me/BhavyaxGupta'}><Image src="/telegramlogo.svg" width={35} className="cursor-pointer" height={500} alt="insta" /></Link>
+                <Link className="hover:scale-110 hover:shadow-2xl pointer-events-auto transition-all ease-linear" href={'https://www.linkedin.com/in/bhavya-gupta-030b59334/'}><Image src="/linkedinlogo.svg" width={28} className="cursor-pointer" height={500} alt="linkedin" /></Link>
             </div>
         </div>
     )

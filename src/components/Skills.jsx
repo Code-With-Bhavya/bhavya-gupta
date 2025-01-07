@@ -31,15 +31,15 @@ export default function Skills() {
             <h1 className='text-3xl'>Skills</h1>
 
             <div className="flex gap-3 "> {/* TABS */}
-                <div className={`z-10 px-5 py-1 ${currenttab === 1 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-l-lg rounded-r-none cursor-pointer`}
+                <div className={` hover:scale-105 transition-all ease-linear hover:bg-[#fff] hover:text-[#FD6F00] hover z-10 px-5 py-1 ${currenttab === 1 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-l-lg rounded-r-none cursor-pointer`}
                     onClick={() => { setCurrenttab(1) }}
                 >Frontend</div>
 
-                <div className={`px-5 py-1 ${currenttab === 2 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-none cursor-pointer`}
+                <div className={` hover:scale-105 transition-all ease-linear hover:bg-[#fff] hover:text-[#FD6F00] hover px-5 py-1 ${currenttab === 2 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-none cursor-pointer`}
                     onClick={() => { setCurrenttab(2) }}
                 >Backend</div>
 
-                <div className={`px-5 py-1 ${currenttab === 3 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-l-none rounded-r-lg cursor-pointer`}
+                <div className={` hover:scale-105 transition-all ease-linear hover:bg-[#fff] hover:text-[#FD6F00] hover px-5 py-1 ${currenttab === 3 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-l-none rounded-r-lg cursor-pointer`}
                     onClick={() => { setCurrenttab(3) }}
                 >Libraries</div>
             </div>
