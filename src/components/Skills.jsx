@@ -44,7 +44,7 @@ export default function Skills() {
                 >Libraries</div>
             </div>
 
-            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10 mt-5'> {/* CARDS */}
+            <div className='grid grid-cols-2  sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10 mt-5'> {/* CARDS */}
                 {cards.map((data, index) => {
                     return (
                         <div key={index} className='cardlinearbg rounded-xl flex flex-col gap-6 justify-centre items-centre px-16 pt-14 pb-2 relative overflow-hidden border-[#3D3F46] border-2'>

@@ -260,7 +260,7 @@ const MatterSimulation = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="w-full h-full fixed top-0 left-0 z-10 touch-auto" />;
+  return <canvas ref={canvasRef} className="w-full h-full fixed top-0 left-0 z-10 pointer-events-none md:pointer-events-auto" />;
 };
 
 export default MatterSimulation;
