@@ -44,10 +44,10 @@ export default function Skills() {
                 >Libraries</div>
             </div>
 
-            <div className='grid grid-cols-2  sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10 mt-5'> {/* CARDS */}
+            <div className='grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10 mt-5'> {/* CARDS */}
                 {cards.map((data, index) => {
                     return (
-                        <div key={index} className='cardlinearbg rounded-xl flex flex-col gap-6 justify-centre items-centre px-16 pt-14 pb-2 relative overflow-hidden border-[#3D3F46] border-2'>
+                        <div key={index} className='cardlinearbg rounded-xl flex flex-col gap-6 justify-centre items-centre px-16 pt-16 pb-5 relative overflow-hidden border-[#3D3F46] border-2'>
                             <div className='absolute top-0 left-0 w-full h-[9px] bg-[#3D3F46]'></div>
                             <Image src={data.src} width={93} height={10} alt={data.title} />
                             <div className="flex flex-col justify-center items-center">
