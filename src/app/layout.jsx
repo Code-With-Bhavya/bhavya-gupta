@@ -16,6 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+    <link rel="icon" href="/websitelogo.svg" />
       <body className={`${poppins.variable} antialiased`}>
         <MatterSimulation />
         <div className="relative z-10 pointer-events-none">

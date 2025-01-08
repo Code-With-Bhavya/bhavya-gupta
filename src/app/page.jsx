@@ -5,7 +5,7 @@ import Skills from '@/components/Skills'
 
 export default function Home() {
   return (
-    <div className='relative w-full px-[160px]'>
+    <div className='relative w-full px-[10vw]'>
 
       <Navbar/>
       <Hero/>

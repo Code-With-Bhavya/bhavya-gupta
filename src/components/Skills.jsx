@@ -27,34 +27,33 @@ export default function Skills() {
     const cards = currenttab === 1 ? frontendcards : currenttab === 2 ? backendcards : librariescards;
 
     return (
-        <div className="w-full  flex flex-col gap-5">
+        <div className="w-full flex flex-col gap-5">
             <h1 className='text-3xl'>Skills</h1>
 
             <div className="flex gap-3 "> {/* TABS */}
-                <div className={` hover:scale-105 transition-all ease-linear hover:bg-[#fff] hover:text-[#FD6F00] hover z-10 px-5 py-1 ${currenttab === 1 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-l-lg rounded-r-none cursor-pointer`}
+                <div className={`hover:scale-105 pointer-events-auto transition-all ease-linear hover:bg-[#fff] hover:text-[#FD6F00] hover z-10 px-5 py-1 ${currenttab === 1 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-l-lg rounded-r-none cursor-pointer`}
                     onClick={() => { setCurrenttab(1) }}
                 >Frontend</div>
 
-                <div className={` hover:scale-105 transition-all ease-linear hover:bg-[#fff] hover:text-[#FD6F00] hover px-5 py-1 ${currenttab === 2 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-none cursor-pointer`}
+                <div className={`hover:scale-105 pointer-events-auto transition-all ease-linear hover:bg-[#fff] hover:text-[#FD6F00] hover px-5 py-1 ${currenttab === 2 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-none cursor-pointer`}
                     onClick={() => { setCurrenttab(2) }}
                 >Backend</div>
 
-                <div className={` hover:scale-105 transition-all ease-linear hover:bg-[#fff] hover:text-[#FD6F00] hover px-5 py-1 ${currenttab === 3 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-l-none rounded-r-lg cursor-pointer`}
+                <div className={`hover:scale-105 pointer-events-auto transition-all ease-linear hover:bg-[#fff] hover:text-[#FD6F00] hover px-5 py-1 ${currenttab === 3 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-l-none rounded-r-lg cursor-pointer`}
                     onClick={() => { setCurrenttab(3) }}
                 >Libraries</div>
             </div>
 
-            <div className='flex justify-start gap-10 mb-10 mt-5'> {/* CARDS */}
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10 mt-5'> {/* CARDS */}
                 {cards.map((data, index) => {
                     return (
                         <div key={index} className='cardlinearbg rounded-xl flex flex-col gap-6 justify-centre items-centre px-16 pt-14 pb-2 relative overflow-hidden border-[#3D3F46] border-2'>
-                            <div className=' absolute top-0 left-0 w-full h-[9px] bg-[#3D3F46]'></div>
+                            <div className='absolute top-0 left-0 w-full h-[9px] bg-[#3D3F46]'></div>
                             <Image src={data.src} width={93} height={10} alt={data.title} />
                             <div className="flex flex-col justify-center items-center">
                                 <h2 className='text-3xl'>{data.title}</h2>
                                 <h4 className={`${data.textcolor} text-sm`}>{data.level}</h4>
                             </div>
-
                         </div>
                     )
                 })}

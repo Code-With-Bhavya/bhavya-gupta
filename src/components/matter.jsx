@@ -8,6 +8,7 @@ import 'matter-wrap';
 
 const MatterSimulation = () => {
   const canvasRef = useRef(null);
+  let userisonmobile = false;
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -23,8 +24,9 @@ const MatterSimulation = () => {
     Matter.use("matter-wrap");
 
     function runMatter() {
+      isMobileDevice();
       // module aliases
-      const { Engine, Events, Runner, Render, World, Body, Mouse, Common, Bodies } = Matter;
+      const { Engine, Events, Runner, Render, World, Body, Mouse, Common, Bodies, Composite } = Matter;
 
       // create engine
       const engine = Engine.create();
@@ -150,14 +152,28 @@ const MatterSimulation = () => {
       // add mouse control
       const mouse = Mouse.create(render.canvas);
 
-      Events.on(engine, "afterUpdate", function () {
-        if (!mouse.position.x) return;
-        // smoothly move the attractor body towards the mouse
-        Body.translate(attractiveBody, {
-          x: (mouse.position.x - attractiveBody.position.x) * 0.12,
-          y: (mouse.position.y - attractiveBody.position.y) * 0.12,
+
+
+      if (userisonmobile) {
+        Events.on(engine, 'afterUpdate', function () {
+          Composite.allBodies(world).forEach(body => {
+            const randomX = Common.random(-0.001, 0.001);
+            const randomY = Common.random(0, 0);
+            Body.applyForce(body, body.position, { x: randomX, y: randomY });
+          });
+
         });
-      });
+      }
+      else {
+        Events.on(engine, "afterUpdate", function () {
+          if (!mouse.position.x) return;
+          // smoothly move the attractor body towards the mouse
+          Body.translate(attractiveBody, {
+            x: (mouse.position.x - attractiveBody.position.x) * 0.12,
+            y: (mouse.position.y - attractiveBody.position.y) * 0.12,
+          });
+        });
+      }
 
       // return a context for MatterDemo to control
       const data = {
@@ -178,6 +194,16 @@ const MatterSimulation = () => {
       Matter.Runner.run(runner, engine);
       Matter.Render.run(render);
       return data;
+    }
+
+
+    //Return TRUE if user is on mobile
+    function isMobileDevice() {
+      if (window.innerWidth <= 1000) {
+        userisonmobile = true;
+      } else {
+        userisonmobile = false;
+      }
     }
 
     function debounce(func, wait, immediate) {

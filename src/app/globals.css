@@ -10,7 +10,6 @@ body {
 
 .cardlinearbg {
   height: 284px;
-  width: 300px;
   background: linear-gradient(
     135deg, /* Adjusted angle to align the gradient properly */
     #1d2029, /* Starting color */
