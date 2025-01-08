@@ -83,69 +83,66 @@ const MatterSimulation = () => {
       World.add(world, attractiveBody);
 
       // add some bodies that to be attracted
-      for (let i = 0; i < 60; i += 1) {
+      const bodies = userisonmobile ? 10 : 60;
+      for (let i = 0; i < bodies; i += 1) {
         let x = Common.random(0, render.options.width);
         let y = Common.random(0, render.options.height);
-        let s = Common.random() > 0.6 ? Common.random(10, 80) : Common.random(4, 60);
+        let s = isMobileDevice() ? Common.random(5, 10) : Common.random(10, 80);
         let polygonNumber = Common.random(3, 6);
-        const body = Bodies.polygon(
-          x,
-          y,
-          polygonNumber,
-          s,
-          {
-            mass: s / 20,
-            friction: 0,
-            frictionAir: 0.02,
-            angle: Math.round(Math.random() * 360),
-            render: {
-              fillStyle: "#222222",
-              strokeStyle: `#000000`,
-              lineWidth: 2,
-            },
-          }
-        );
-
+  
+        const body = Bodies.polygon(x, y, polygonNumber, s, {
+          mass: s / 20,
+          friction: 0,
+          frictionAir: 0.02,
+          angle: Math.round(Math.random() * 360),
+          render: {
+            fillStyle: '#222222',
+            strokeStyle: '#000000',
+            lineWidth: 2,
+          },
+        });
+  
         World.add(world, body);
-
+  
         let r = Common.random(0, 1);
-        const circle1 = Bodies.circle(x, y, Common.random(2, 8), {
+  
+        const circle1 = Bodies.circle(x, y, isMobileDevice() ? Common.random(1, 2) : Common.random(2, 8), {
           mass: 0.1,
           friction: 0,
           frictionAir: 0.01,
           render: {
-            fillStyle: r > 0.3 ? `#27292d` : `#444444`,
-            strokeStyle: `#000000`,
+            fillStyle: r > 0.3 ? '#27292d' : '#444444',
+            strokeStyle: '#000000',
             lineWidth: 2,
           },
         });
-
+  
         World.add(world, circle1);
-
-        const circle2 = Bodies.circle(x, y, Common.random(2, 20), {
+  
+        const circle2 = Bodies.circle(x, y, isMobileDevice() ? Common.random(1, 5) : Common.random(2, 20), {
           mass: 6,
           friction: 0,
           frictionAir: 0,
           render: {
-            fillStyle: r > 0.3 ? `#334443` : `#222222`,
-            strokeStyle: `#111111`,
+            fillStyle: r > 0.3 ? '#334443' : '#222222',
+            strokeStyle: '#111111',
             lineWidth: 4,
           },
         });
-
+  
         World.add(world, circle2);
-
-        const circle3 = Bodies.circle(x, y, Common.random(2, 30), {
+  
+        const circle3 = Bodies.circle(x, y, isMobileDevice() ? Common.random(1, 10) : Common.random(2, 30), {
           mass: 0.2,
           friction: 0.6,
           frictionAir: 0.8,
           render: {
-            fillStyle: `#191919`,
-            strokeStyle: `#111111`,
+            fillStyle: '#191919',
+            strokeStyle: '#111111',
             lineWidth: 3,
           },
         });
-
+  
         World.add(world, circle3);
       }
 
