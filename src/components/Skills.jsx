@@ -30,7 +30,7 @@ export default function Skills() {
         <div className="w-full flex flex-col gap-5">
             <h1 className='text-3xl'>Skills</h1>
 
-            <div className="flex gap-3 "> {/* TABS */}
+            <div className="flex md:gap-3 "> {/* TABS */}
                 <div className={`hover:scale-105 pointer-events-auto transition-all ease-linear hover:bg-[#fff] hover:text-[#FD6F00] hover z-10 px-5 py-1 ${currenttab === 1 ? 'bg-[#FD6F00]' : 'bg-[#0E1016]'} rounded-l-lg rounded-r-none cursor-pointer`}
                     onClick={() => { setCurrenttab(1) }}
                 >Frontend</div>
@@ -49,7 +49,9 @@ export default function Skills() {
                     return (
                         <div key={index} className='cardlinearbg rounded-xl flex flex-col gap-6 justify-centre items-centre px-16 pt-16 pb-5 relative overflow-hidden border-[#3D3F46] border-2'>
                             <div className='absolute top-0 left-0 w-full h-[9px] bg-[#3D3F46]'></div>
-                            <Image src={data.src} width={93} height={10} alt={data.title} />
+                            <div className='w-[20vw] relative flex justify-center items-center'>
+                                <Image src={data.src} width={93} height={20} objectFit='contain'  alt={data.title} />
+                            </div>
                             <div className="flex flex-col justify-center items-center">
                                 <h2 className='text-3xl'>{data.title}</h2>
                                 <h4 className={`${data.textcolor} text-sm`}>{data.level}</h4>

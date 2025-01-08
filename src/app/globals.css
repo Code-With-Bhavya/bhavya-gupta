@@ -6,6 +6,7 @@ body {
   background-color: #03050c;
   color: white;
   font-family: "Poppins", sans-serif;
+  
 }
 
 .cardlinearbg {
@@ -26,4 +27,10 @@ body {
 
 
 .grayscale {
-  filter: invert(100%) grayscale(100%) contrast(100%);}
+  filter: invert(100%) grayscale(100%) contrast(100%);
+}
+.blur-background {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+

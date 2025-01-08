@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
     <link rel="icon" href="/websitelogo.svg" />
       <body className={`${poppins.variable} antialiased`}>
         <MatterSimulation />
-        <div className="relative z-10 pointer-events-none md:pointer-events-auto">
+        <div className="relative z-10 pointer-events-auto md:pointer-events-none">
           {children}
         </div>
       </body>
