@@ -87,7 +87,7 @@ const MatterSimulation = () => {
       for (let i = 0; i < bodies; i += 1) {
         let x = Common.random(0, render.options.width);
         let y = Common.random(0, render.options.height);
-        let s = isMobileDevice() ? Common.random(5, 10) : Common.random(10, 80);
+        let s = userisonmobile ? Common.random(5, 30) : Common.random(10, 80);
         let polygonNumber = Common.random(3, 6);
   
         const body = Bodies.polygon(x, y, polygonNumber, s, {
@@ -106,7 +106,7 @@ const MatterSimulation = () => {
   
         let r = Common.random(0, 1);
   
-        const circle1 = Bodies.circle(x, y, isMobileDevice() ? Common.random(1, 2) : Common.random(2, 8), {
+        const circle1 = Bodies.circle(x, y, userisonmobile ? Common.random(1, 4) : Common.random(2, 8), {
           mass: 0.1,
           friction: 0,
           frictionAir: 0.01,
@@ -119,7 +119,7 @@ const MatterSimulation = () => {
   
         World.add(world, circle1);
   
-        const circle2 = Bodies.circle(x, y, isMobileDevice() ? Common.random(1, 5) : Common.random(2, 20), {
+        const circle2 = Bodies.circle(x, y, userisonmobile ? Common.random(1, 10) : Common.random(2, 20), {
           mass: 6,
           friction: 0,
           frictionAir: 0,
@@ -132,7 +132,7 @@ const MatterSimulation = () => {
   
         World.add(world, circle2);
   
-        const circle3 = Bodies.circle(x, y, isMobileDevice() ? Common.random(1, 10) : Common.random(2, 30), {
+        const circle3 = Bodies.circle(x, y, userisonmobile ? Common.random(1, 20) : Common.random(2, 30), {
           mass: 0.2,
           friction: 0.6,
           frictionAir: 0.8,
@@ -153,12 +153,12 @@ const MatterSimulation = () => {
 
       if (userisonmobile) {
         Events.on(engine, 'afterUpdate', function () {
-          Composite.allBodies(world).forEach(body => {
-            const randomX = Common.random(-0.001, 0.001);
-            const randomY = Common.random(0, 0);
-            Body.applyForce(body, body.position, { x: randomX, y: randomY });
+          const randomX = Common.random(0, render.options.width);
+          const randomY = Common.random(0, render.options.height);
+          Body.translate(attractiveBody, {
+            x: (randomX - attractiveBody.position.x) * 0.12,
+            y: (randomY - attractiveBody.position.y) * 0.12,
           });
-
         });
       }
       else {
