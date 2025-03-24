@@ -9,23 +9,6 @@ body {
   
 }
 
-.cardlinearbg {
-  background: linear-gradient(
-    135deg, /* Adjusted angle to align the gradient properly */
-    #1d2029, /* Starting color */
-    #080a10 50%, /* Midpoint color */
-    #262a36 /* Ending color */
-  );
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Drop shadow effect */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white; /* Text color */
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-
 .grayscale {
   filter: invert(100%) grayscale(100%) contrast(100%);
 }
@@ -33,4 +16,36 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+
+.hoverbtn {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s ease-in-out;
+  border: 1px solid #ffffff94;
+}
+.hoverbtn:hover{
+  color: #FD6F00;
+  border: 1px solid #FD6F00;
+}
+
+.hoverbtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  color: #FD6F00;
+  background: #03050c ;
+  transition: left 0.5s ease-in-out;
+  z-index: -1;
+}
+
+.hoverbtn:hover::before {
+  left: 0;
+}
+
 

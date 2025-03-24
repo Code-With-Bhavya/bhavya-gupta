@@ -53,7 +53,7 @@ export default function Navbar() {
           <Link className='hover:text-[#FD6F00] pointer-events-auto transition-all hover:scale-105 ease-linear' href="#">About Us</Link>
           <Link className='hover:text-[#FD6F00] pointer-events-auto transition-all hover:scale-105 ease-linear' href="#">Services</Link>
           <Link className='hover:text-[#FD6F00] pointer-events-auto transition-all hover:scale-105 ease-linear' href="#">Contact Us</Link>
-          <Link href={'https://www.fiverr.com/s/dDW9542'} className='bg-[#FD6F00] flex pointer-events-auto justify-center items-center font-medium h-full px-[20px] rounded-[2px] hover:text-[#FD6F00] hover:bg-white hover:scale-105 transition-all ease-linear'> Hire Me</Link>
+          <button className='bg-[#FD6F00] flex pointer-events-auto justify-center items-center font-medium h-full px-[20px] rounded-[2px] hoverbtn transition-all ease-linear'><Link href={'https://www.fiverr.com/s/dDW9542'} > Hire Me</Link></button>
         </div>
 
         {/* Hamburger Icon */}
