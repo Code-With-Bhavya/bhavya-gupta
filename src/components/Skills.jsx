@@ -1,32 +1,51 @@
 "use client"
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState , useEffect, useRef} from 'react'
 import GlowCard from './aeroui/glowcard'
+import { useInView } from 'framer-motion'
 
 export default function Skills() {
 
-    const [currenttab, setCurrenttab] = useState(1)
+    const [currenttab, setCurrenttab] = useState(1);
+    const ref = useRef(null);
+    const  isInView  = useInView(ref, { amount: 0.5 }); // 50% visible
+
 
     const frontendcards = [
         { src: "/reactlogo.svg", title: "ReactJS", level: "Intermediate" },
         { src: "/nextjslogo.svg", title: "NextJS", level: "Intermediate" },
-        { src: "/csslogo.svg", title: "CSS", level: "Intermediate" },
-        { src: "/htmllogo.svg", title: "Html", level: "Intermediate" },
+        { src: "/csslogo.svg", title: "CSS", level: "Advanced" },
+        { src: "/htmllogo.svg", title: "HTML", level: "Advanced" },
+        { src: "/figmalogo.svg", title: "Figma", level: "Intermediate" }, // Since you're improving UI/UX design
     ];
+    
     const backendcards = [
-        { src: "/pythonlogo.svg", title: "Python", level: "Intermediate" },
+        { src: "/pythonlogo.svg", title: "Python", level: "Intermediate" }, // You've worked with Python before
         { src: "/nodejslogo.svg", title: "NodeJS", level: "Intermediate" },
+        { src: "/socketiologo.svg", title: "Socket.io", level: "Intermediate" }, // Since you've worked with socket.io events
     ];
+    
     const librariescards = [
-        { src: "/tailwindlogo.svg", title: "TailwindCSS", level: "Intermediate" },
-        { src: "/socketiologo.svg", title: "Socket.io", level: "Intermediate" },
-        { src: "/githublogo.svg", title: "Github", level: "Intermediate" },
-        { src: "/figmalogo.svg", title: "Figma", level: "Intermediate" },
+        { src: "/tailwindlogo.svg", title: "TailwindCSS", level: "Advanced" }, // You're using it heavily in projects
+        { src: "/githublogo.svg", title: "GitHub", level: "Intermediate" }, // Since you're freelancing
+        { src: "/framer.svg", title: "Framer", level: "Intermediate" }, // You’ve been using Framer Motion
     ];
 
+    const tabs = [1, 2, 3];
+
+    useEffect(() => {
+        if (!isInView) return; // Run interval only if section is visible
+        const interval = setInterval(() => {
+            setCurrenttab((prev) => tabs[(tabs.indexOf(prev) + 1) % tabs.length]); // Next tab logic
+        }, 5000); 
+
+        return () => clearInterval(interval); // Cleanup interval on unmount
+    }, [isInView ,currenttab]);
+    
+
     return (
-        <div className="w-full flex flex-col gap-5">
+        <div ref={ref} className="w-full flex flex-col gap-5">
             <h1 className='text-3xl'>Skills</h1>
 
             {/* TABS */}
@@ -68,7 +87,7 @@ export default function Skills() {
                                 </div>
                                 <div className="flex flex-col justify-center items-center">
                                     <h2 className='text-3xl'>{data.title}</h2>
-                                    <h4 className="text-[#FD6F00] text-sm">{data.level}</h4>
+                                    <h4 className="text-[#FD6F00] text-sm font-semibold">{data.level}</h4>
                                 </div>
                             </div>
                         </GlowCard>
