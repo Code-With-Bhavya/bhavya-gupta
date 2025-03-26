@@ -17,7 +17,7 @@ const withOpacity = (color, opacity) => {
   return color;
 };
 
-export default function GlowCard({ children, className, color = '#ffffff' }) {
+export default function GlowCard({ children, className, color = '#ffffff', secondcolor = '#ffffff', opacity = 0.3, innercolor = '#ffffff' }) {
   const container = useRef(null);
   const glowElements = useRef([]);
 
@@ -57,7 +57,7 @@ export default function GlowCard({ children, className, color = '#ffffff' }) {
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
-        // animate={{ x: 0, opacity: 1, scale: 1 }}
+        animate={{ x: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
         exit={{ x: -50, opacity: 0, scale: 0.9 }}
         whileHover={{ scale: 1.02 }}
@@ -68,7 +68,7 @@ export default function GlowCard({ children, className, color = '#ffffff' }) {
         <div
           className="glow w-[15em] h-[15em] rounded-full blur-3xl absolute  transition-opacity duration-200 group-hover:opacity-50 "
           style={{
-            backgroundColor: color,
+            background: `radial-gradient(circle, ${color} 20%, ${secondcolor} 80%)`,
             transform: "translate3d(50%, 50%, 0)",
             willChange: "transform",
             transition: "opacity 0.4s ease",
@@ -77,13 +77,13 @@ export default function GlowCard({ children, className, color = '#ffffff' }) {
 
         <div
           ref={container}
-          className={`w-full h-full ${className}!relative overflow-hidden`}
+          className={`w-full h-full overflow-hidden ${className}!relative `}
         >
           {/* Inner glow */}
           <div
-            className="glow w-[90%] z-[1] h-[80%] rounded-full blur-2xl absolute opacity-0 transition-opacity duration-200 group-hover:opacity-40"
+            className="glow w-[15em] z-[1] h-[15em] rounded-full blur-2xl absolute opacity-0 transition-opacity duration-200 group-hover:opacity-40"
             style={{
-              backgroundColor: withOpacity(color, 0.3),
+              backgroundColor: withOpacity(innercolor, opacity),
               transform: "translate3d(50%, 50%, 0)",
               willChange: "transform",
               transition: "opacity 0.2s ease",

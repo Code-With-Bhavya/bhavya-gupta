@@ -6,7 +6,7 @@ import Link from "next/link"
 export default function Hero() {
     return (
         <div className=" w-full flex justify-between items-center bg-transparent h-[calc(100vh-50px)]  ">
-            <div className="">
+            <div>
                 <div className="text-[2em] font-medium flex gap-1"> 
                     <div className="text-[#FD6F00] transition-all ease-linear pointer-events-auto">Hello</div> , I'm</div>
                 <h1 className=" font-bold mt-[-10px] text-[3.4em] md:text-[4em] hover:scale-105 transition-all ease-linear hover:text-[#FD6F00] pointer-events-auto">Bhavya gupta</h1>

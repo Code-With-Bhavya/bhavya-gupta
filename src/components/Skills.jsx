@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useState , useEffect, useRef} from 'react'
+import { useState, useEffect, useRef } from 'react'
 import GlowCard from './aeroui/glowcard'
 import { useInView } from 'framer-motion'
 
@@ -9,7 +9,7 @@ export default function Skills() {
 
     const [currenttab, setCurrenttab] = useState(1);
     const ref = useRef(null);
-    const  isInView  = useInView(ref, { amount: 0.5 }); // 50% visible
+    const isInView = useInView(ref, { amount: 0.5 }); // 50% visible
 
 
     const frontendcards = [
@@ -19,13 +19,13 @@ export default function Skills() {
         { src: "/htmllogo.svg", title: "HTML", level: "Advanced" },
         { src: "/figmalogo.svg", title: "Figma", level: "Intermediate" }, // Since you're improving UI/UX design
     ];
-    
+
     const backendcards = [
         { src: "/pythonlogo.svg", title: "Python", level: "Intermediate" }, // You've worked with Python before
         { src: "/nodejslogo.svg", title: "NodeJS", level: "Intermediate" },
         { src: "/socketiologo.svg", title: "Socket.io", level: "Intermediate" }, // Since you've worked with socket.io events
     ];
-    
+
     const librariescards = [
         { src: "/tailwindlogo.svg", title: "TailwindCSS", level: "Advanced" }, // You're using it heavily in projects
         { src: "/githublogo.svg", title: "GitHub", level: "Intermediate" }, // Since you're freelancing
@@ -38,14 +38,14 @@ export default function Skills() {
         if (!isInView) return; // Run interval only if section is visible
         const interval = setInterval(() => {
             setCurrenttab((prev) => tabs[(tabs.indexOf(prev) + 1) % tabs.length]); // Next tab logic
-        }, 5000); 
+        }, 5000);
 
         return () => clearInterval(interval); // Cleanup interval on unmount
-    }, [isInView ,currenttab]);
-    
+    }, [isInView, currenttab]);
+
 
     return (
-        <div ref={ref} className="w-full flex flex-col gap-5">
+        <div ref={ref} className="w-full h-[calc(100vh)] py-12 flex flex-col gap-5">
             <h1 className='text-3xl'>Skills</h1>
 
             {/* TABS */}
@@ -68,18 +68,20 @@ export default function Skills() {
 
             <AnimatePresence mode="wait">
                 <motion.div
-                    key={currenttab} 
+                    key={"skills-" + currenttab}
                     initial={{ x: -100, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: -100, opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.4, ease: 'easeInOut' }}
-                    className='grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10 mt-5'
+                    className='grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-10 mb-10 mt-5 w-full h-full'
                 >
                     {(currenttab === 1 ? frontendcards : currenttab === 2 ? backendcards : librariescards).map((data, index) => (
                         <GlowCard
                             color='#FD6F00'
+                            secondcolor='#FD6F00'
+                            innercolor='#FFFFFF'
                             key={index}
-                            className='bg-[#03050c] rounded-xl flex flex-col gap-6 justify-center items-center z-10 p-16 relative pointer-events-auto'
+                            className='bg-[#03050c] h-full w-full rounded-xl flex flex-col gap-6 justify-center items-center z-10 relative pointer-events-auto'
                         >
                             <div className='flex justify-center items-center flex-col gap-2'>
                                 <div className='flex justify-center items-center w-20 h-20'>
