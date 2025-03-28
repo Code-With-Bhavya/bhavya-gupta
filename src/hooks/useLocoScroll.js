@@ -4,37 +4,38 @@ const useLocoScroll = () => {
     const scrollRef = useRef(null);
 
     useEffect(() => {
-        if (typeof window === "undefined") return; // Ensure it runs only in the browser
+        if (typeof window === "undefined") return; // Ensure code runs only on the client-side
 
-        let scroll; // Store Locomotive instance here
+        let scroll; // Store Locomotive instance
 
         import("locomotive-scroll").then((LocomotiveScroll) => {
             if (!scrollRef.current) return;
 
             scroll = new LocomotiveScroll.default({
                 el: scrollRef.current,
-                smooth: true
+                smooth: true,
             });
 
-            // Observe changes in the DOM
-            const observer = new MutationObserver(() => {
-                scroll.update();
-            });
+            // Ensure document is available before querying elements
+            if (typeof document !== "undefined") {
+                const observer = new MutationObserver(() => {
+                    scroll.update();
+                });
 
-            const config = { childList: true, subtree: true };
-            const mainElement = document.querySelector("#main");
-            if (mainElement) observer.observe(mainElement, config);
+                const config = { childList: true, subtree: true };
+                const mainElement = document.querySelector("#main");
+                if (mainElement) observer.observe(mainElement, config);
 
-            // Ensure scroll updates when page loads fully
-            const updateScroll = () => scroll.update();
-            window.addEventListener("load", updateScroll);
+                const updateScroll = () => scroll.update();
+                window.addEventListener("load", updateScroll);
 
-            // Cleanup function to avoid memory leaks
-            return () => {
-                observer.disconnect();
-                window.removeEventListener("load", updateScroll);
-                scroll.destroy();
-            };
+                // Cleanup to prevent memory leaks
+                return () => {
+                    observer.disconnect();
+                    window.removeEventListener("load", updateScroll);
+                    scroll.destroy();
+                };
+            }
         });
     }, []);
 
