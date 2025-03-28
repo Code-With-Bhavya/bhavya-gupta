@@ -4,38 +4,28 @@ const useLocoScroll = () => {
     const scrollRef = useRef(null);
 
     useEffect(() => {
-        if (typeof window === "undefined") return; // Ensure code runs only on the client-side
-
-        let scroll; // Store Locomotive instance
+        if (typeof window === "undefined") return; // Ensure client-side execution
 
         import("locomotive-scroll").then((LocomotiveScroll) => {
             if (!scrollRef.current) return;
 
-            scroll = new LocomotiveScroll.default({
+            const scroll = new LocomotiveScroll.default({
                 el: scrollRef.current,
-                smooth: true,
+                smooth: true
             });
 
-            // Ensure document is available before querying elements
-            if (typeof document !== "undefined") {
-                const observer = new MutationObserver(() => {
-                    scroll.update();
-                });
+            const observer = new MutationObserver(() => scroll.update());
 
-                const config = { childList: true, subtree: true };
-                const mainElement = document.querySelector("#main");
-                if (mainElement) observer.observe(mainElement, config);
-
-                const updateScroll = () => scroll.update();
-                window.addEventListener("load", updateScroll);
-
-                // Cleanup to prevent memory leaks
-                return () => {
-                    observer.disconnect();
-                    window.removeEventListener("load", updateScroll);
-                    scroll.destroy();
-                };
+            if (scrollRef.current) {
+                observer.observe(scrollRef.current, { childList: true, subtree: true });
             }
+
+            window.addEventListener("load", () => scroll.update());
+
+            return () => {
+                observer.disconnect();
+                scroll.destroy();
+            };
         });
     }, []);
 
