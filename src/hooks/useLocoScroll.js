@@ -1,39 +1,41 @@
 import { useEffect, useRef } from "react";
-import LocomotiveScroll from "locomotive-scroll";
 
 const useLocoScroll = () => {
     const scrollRef = useRef(null);
 
     useEffect(() => {
-        if (!scrollRef.current) return;
+        if (typeof window === "undefined") return; // Ensure it runs only in the browser
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const scroll = new LocomotiveScroll({
+        let scroll; // Store Locomotive instance here
+
+        import("locomotive-scroll").then((LocomotiveScroll) => {
+            if (!scrollRef.current) return;
+
+            scroll = new LocomotiveScroll.default({
                 el: scrollRef.current,
                 smooth: true
             });
 
-            // Observe for changes in the DOM and update Locomotive Scroll
+            // Observe changes in the DOM
             const observer = new MutationObserver(() => {
                 scroll.update();
             });
 
             const config = { childList: true, subtree: true };
-            observer.observe(document.querySelector('#main'), config);
+            const mainElement = document.querySelector("#main");
+            if (mainElement) observer.observe(mainElement, config);
 
-            // Call update once all content is loaded
-            window.addEventListener('load', () => {
-                scroll.update();
-            });
+            // Ensure scroll updates when page loads fully
+            const updateScroll = () => scroll.update();
+            window.addEventListener("load", updateScroll);
+
+            // Cleanup function to avoid memory leaks
+            return () => {
+                observer.disconnect();
+                window.removeEventListener("load", updateScroll);
+                scroll.destroy();
+            };
         });
-        return () => {
-            window.removeEventListener("load", () => {
-                scroll.update();
-            });
-            window.removeEventListener("DOMContentLoaded", () => {
-                scroll.update();
-            });
-        };
     }, []);
 
     return scrollRef;

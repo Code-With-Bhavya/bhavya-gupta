@@ -33,6 +33,20 @@ const Projects = () => {
             tags: ['Vanilla JS', 'Html', 'CSS'],
             imageUrl: '/pong.png',
             projectUrl: 'https://bgpong.netlify.app/'
+        },
+        {
+            title: '2048 ',
+            description: '"2048" is a popular number puzzle game with a minimalist design. It features swipe controls, multiple themes, and a high score leaderboard. With smooth animations and responsive layout, it offers an addictive gaming experience! 🎲🔢',
+            tags: ['Vanilla JS', 'HTML', 'CSS', 'Netlify'],
+            imageUrl: '/2048.png',
+            projectUrl: 'https://super2048.netlify.app/'
+        },
+        {
+            title: 'Snake Game',
+            description: '"Snake Game" is a classic arcade game with a modern twist. It features multiple levels, power-ups, and customizable settings. With smooth animations and responsive design, it offers an engaging gaming experience! 🐍🎮',
+            tags: ['Vanilla JS', 'HTML', 'CSS', 'Netlify'],
+            imageUrl: '/snake.png',
+            projectUrl: 'https://mysnake-game-js.netlify.app/'
         }
     ];
     
@@ -45,7 +59,7 @@ const Projects = () => {
             transition={{ duration: 0.5 }}
             className='w-full flex flex-col gap-5 pointer-events-auto'
         >
-            <h1 className='text-3xl'>Projects</h1>
+            <h1 className='text-3xl'>P<span className='text-[#FD6F00]'>ro</span>jects</h1>
             <div>
                 {projectsData.map((project, index) => (
                     index % 2 === 0 ? (

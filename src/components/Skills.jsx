@@ -45,8 +45,8 @@ export default function Skills() {
 
 
     return (
-        <div ref={ref} className="w-full h-[calc(100vh)] py-12 flex flex-col gap-5">
-            <h1 className='text-3xl'>Skills</h1>
+        <div ref={ref} className="w-full h-[100vh] py-12 flex flex-col gap-5">
+            <h1 className='text-3xl'>Ski<span className='text-[#FD6F00]'>ll</span>s</h1>
 
             {/* TABS */}
             <div className="flex md:gap-3">
