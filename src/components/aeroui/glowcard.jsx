@@ -62,7 +62,7 @@ export default function GlowCard({ children, className, color = '#ffffff', secon
         exit={{ x: -50, opacity: 0, scale: 0.9 }}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-
+      
         className=" bg-[#ffffff21] rounded-2xl p-1 relative !overflow-hidden pointer-events-auto group">
         {/* Outer glow */}
         <div

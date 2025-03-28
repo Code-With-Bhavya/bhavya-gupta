@@ -26,6 +26,13 @@ const Projects = () => {
             tags: ['React', 'Tailwind', 'Framer', 'Netlify'],
             imageUrl: '/chessproject.png',
             projectUrl: 'https://chessmaster492.netlify.app/'
+        },
+        {
+            title: 'Pong Game',
+            description: '"Pong Game" is a classic arcade game with a modern twist. It features a single-player mode, multiplayer mode, and customizable settings. With smooth animations and responsive design, it offers an engaging gaming experience! 🏓🎮',
+            tags: ['Vanilla JS', 'Html', 'CSS'],
+            imageUrl: '/pong.png',
+            projectUrl: 'https://bgpong.netlify.app/'
         }
     ];
     

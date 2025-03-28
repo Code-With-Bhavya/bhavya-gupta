@@ -1,6 +1,8 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import MatterSimulation from "@/components/matter";
+import LocoWrapper from "./LocoWrapper";
+
 
 const poppins = Poppins({
   variable: "--font-Poppins",
@@ -16,12 +18,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    <link rel="icon" href="/websitelogo.svg" />
+      <link rel="icon" href="/websitelogo.svg" />
       <body className={`${poppins.variable} antialiased`}>
-        <MatterSimulation />
-        <div className="relative z-10 pointer-events-auto md:pointer-events-none">
-          {children}
-        </div>
+        <LocoWrapper>
+          <MatterSimulation />
+          <div data-scroll-container className="relative z-10 pointer-events-auto md:pointer-events-none">
+            {children}
+          </div>
+        </LocoWrapper>
       </body>
     </html>
   );

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "framer-motion": "^12.5.0",
+    "locomotive-scroll": "^4.1.4",
     "matter-attractors": "^0.1.6",
     "matter-js": "^0.20.0",
     "matter-wrap": "^0.2.0",
