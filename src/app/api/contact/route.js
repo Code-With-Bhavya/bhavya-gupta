@@ -1,14 +1,15 @@
 export async function POST(req) {
     try {
-        const { name, subject, message } = await req.json(); // Email removed as per request
+        const { name, subject, email, message } = await req.json(); // Email removed as per request
 
         const TELEGRAM_BOT_TOKEN = "7430181237:AAEl5eOXoXDT5tFtJRFStr16bNfm6ZORBdI";
         const TELEGRAM_CHAT_ID = "6262549908"; // Your Telegram Chat ID
 
-        const text = `✉️ *New Contact Form Submission* ✉️
-👤 *Name:* ${name}
-📝 *Subject:* ${subject}
-💬 *Message:* ${message}`;
+        const text = `*New Contact Form Submission* 
+*Name:* ${name}
+*Subject:* ${subject}
+*Contact:* ${email}
+*Message:* ${message}`;
 
         const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
 
