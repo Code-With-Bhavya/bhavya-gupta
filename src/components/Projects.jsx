@@ -58,6 +58,7 @@ const Projects = () => {
             exit={{ x: -100, opacity: 0 }}
             transition={{ duration: 0.5 }}
             className='w-full flex flex-col gap-5 pointer-events-auto'
+            id='projects'
         >
             <h1 className='text-3xl'>P<span className='text-[#FD6F00]'>ro</span>jects</h1>
             <div>

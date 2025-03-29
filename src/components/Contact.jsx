@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 
 const Contact = () => {
     const [text, setText] = useState("Send message");
@@ -49,10 +50,12 @@ const Contact = () => {
     return (
         <AnimatePresence>
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                initial={{ opacity: 0, x: -200 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut", delay: 0.1 }}
                 exit={{ opacity: 0 }}
                 className="w-full h-[100vh] p-12 flex flex-col gap-5 pointer-events-auto"
+                id="contact"
             >
                 <div className="flex flex-col">
                     <h1 className="text-3xl text-white">
@@ -77,11 +80,10 @@ const Contact = () => {
                             />
                             <label
                                 htmlFor="name"
-                                className={`absolute left-4 px-1 transition-all bg-[#03050C] ${
-                                    formData.name || activeField === "name"
+                                className={`absolute left-4 px-1 transition-all bg-[#03050C] ${formData.name || activeField === "name"
                                         ? "top-[-10px] text-[#FD6F00]"
                                         : "top-3 text-gray-400"
-                                } peer-focus:top-[-10px] peer-focus:text-[#FD6F00]`}
+                                    } peer-focus:top-[-10px] peer-focus:text-[#FD6F00]`}
                             >
                                 Name
                             </label>
@@ -101,11 +103,10 @@ const Contact = () => {
                             />
                             <label
                                 htmlFor="subject"
-                                className={`absolute left-4 px-1 transition-all bg-[#03050C] ${
-                                    formData.subject || activeField === "subject"
+                                className={`absolute left-4 px-1 transition-all bg-[#03050C] ${formData.subject || activeField === "subject"
                                         ? "top-[-10px] text-[#FD6F00]"
                                         : "top-3 text-gray-400"
-                                } peer-focus:top-[-10px] peer-focus:text-[#FD6F00]`}
+                                    } peer-focus:top-[-10px] peer-focus:text-[#FD6F00]`}
                             >
                                 Subject
                             </label>
@@ -123,11 +124,10 @@ const Contact = () => {
                             />
                             <label
                                 htmlFor="email"
-                                className={`absolute left-4 px-1 transition-all bg-[#03050C] ${
-                                    formData.email || activeField === "email"
+                                className={`absolute left-4 px-1 transition-all bg-[#03050C] ${formData.email || activeField === "email"
                                         ? "top-[-10px] text-[#FD6F00]"
                                         : "top-3 text-gray-400"
-                                } peer-focus:top-[-10px] peer-focus:text-[#FD6F00]`}
+                                    } peer-focus:top-[-10px] peer-focus:text-[#FD6F00]`}
                             >
                                 Email or Contact (Optional)
                             </label>
@@ -146,11 +146,10 @@ const Contact = () => {
                             />
                             <label
                                 htmlFor="message"
-                                className={`absolute left-4 px-1 transition-all bg-[#03050C] ${
-                                    formData.message || activeField === "message"
+                                className={`absolute left-4 px-1 transition-all bg-[#03050C] ${formData.message || activeField === "message"
                                         ? "top-[-10px] text-[#FD6F00]"
                                         : "top-3 text-gray-400"
-                                } peer-focus:top-[-10px] peer-focus:text-[#FD6F00]`}
+                                    } peer-focus:top-[-10px] peer-focus:text-[#FD6F00]`}
                             >
                                 Your message
                             </label>
@@ -165,6 +164,17 @@ const Contact = () => {
                             {text}
                         </motion.button>
                     </form>
+                </div>
+
+
+                <div className="flex gap-2 w-full text-xl text-[#FD6F00] justify-center items-center">
+                    Other ways to contact me:
+                    <div className="flex gap-4 justify-center items-center">
+                        <a className="hover:scale-110 hover:shadow-2xl pointer-events-auto transition-all ease-linear" href="mailto:guptabhavya1402@gmail.com"><Image src="/mail.svg" width={28} className="cursor-pointer" height={500} alt="gmail"/></a>
+                        <a className="hover:scale-110 hover:shadow-2xl pointer-events-auto transition-all ease-linear" href={'https://x.com/Gupta_Bhavya_'}><Image src="/twitterlogo.svg" width={28} className="cursor-pointer" height={500} alt="twitter" /></a>
+                        <a className="hover:scale-110 hover:shadow-2xl pointer-events-auto transition-all ease-linear" href={'https://t.me/BhavyaxGupta'}><Image src="/telegramlogo.svg" width={35} className="cursor-pointer" height={500} alt="insta" /></a>
+                        <a className="hover:scale-110 hover:shadow-2xl pointer-events-auto transition-all ease-linear" href={'https://www.linkedin.com/in/bhavya-gupta-030b59334/'}><Image src="/linkedinlogo.svg" width={28} className="cursor-pointer" height={500} alt="linkedin" /></a>
+                    </div>
                 </div>
             </motion.div>
         </AnimatePresence>

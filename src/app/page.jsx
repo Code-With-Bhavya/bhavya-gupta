@@ -5,6 +5,7 @@ import Skills from '@/components/Skills'
 import Projects from '@/components/Projects';
 import Image from 'next/image';
 import Contact from '@/components/Contact';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   
@@ -17,6 +18,7 @@ export default function Home() {
       <Skills/>
       <Projects/>
       <Contact/>
+      <Footer/>
     </div>
   );
 }
