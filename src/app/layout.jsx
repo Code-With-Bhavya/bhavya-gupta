@@ -1,6 +1,6 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import MatterSimulation from "@/components/matter";
+
 
 
 const poppins = Poppins({
@@ -19,12 +19,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <link rel="icon" href="/websitelogo.svg" />
       <body className={`${poppins.variable} antialiased`}>
-        
-          <MatterSimulation />
-          <div className="relative z-10 pointer-events-auto md:pointer-events-none">
-            {children}
-          </div>
-      
+        {children}
+
       </body>
     </html>
   );

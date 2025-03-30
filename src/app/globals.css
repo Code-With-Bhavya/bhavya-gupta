@@ -77,15 +77,4 @@ html {
   border-radius: 14px;
 }
 
-.inputs{
-  position: absolute;
-  z-index: 1000;
-}
 
-.labels{
-  position: absolute;
-}
-
-.inputs:focus + .labels, .inputs:valid + .labels{
-  transform: translate(-15px, 16px);
-}

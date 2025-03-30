@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Matter from 'matter-js';
 import 'matter-attractors';
 import 'matter-wrap';
@@ -8,7 +8,7 @@ import 'matter-wrap';
 
 const MatterSimulation = () => {
   const canvasRef = useRef(null);
-  let userisonmobile = false;
+  const [userisonmobile, setUserisonmobile] = useState(false)
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -62,9 +62,9 @@ const MatterSimulation = () => {
         Math.max(dimensions.width / 25, dimensions.height / 25) / 2,
         {
           render: {
-            fillStyle: `#000`,
-            strokeStyle: `#000`,
+            fillStyle: `rgba(253, 111, 0, 0.4)`,
             lineWidth: 0,
+            zIndex: 1000,
           },
           isStatic: true,
           plugin: {
@@ -197,9 +197,7 @@ const MatterSimulation = () => {
     //Return TRUE if user is on mobile
     function isMobileDevice() {
       if (window.innerWidth <= 1000) {
-        userisonmobile = true;
-      } else {
-        userisonmobile = false;
+        setUserisonmobile(true);
       }
     }
 
