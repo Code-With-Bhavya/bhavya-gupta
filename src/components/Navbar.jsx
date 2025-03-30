@@ -98,7 +98,7 @@ export default function Navbar() {
       </div>
 
       {/* Background Blur */}
-      <div onClick={toggleSidebar} className={`md:hidden fixed inset-0 bg-black bg-opacity-50 z-20 transition-opacity duration-300 ${isSidebarOpen ? 'opacity-100 blur-background' : 'opacity-0 pointer-events-none'}`}/>
+      <div onClick={toggleSidebar} className={`md:hidden fixed inset-0 bg-black bg-opacity-50 z-20 transition-opacity duration-300 w-full h-full ${isSidebarOpen ? 'block blur-background' : 'hidden pointer-events-none'}`}/>
     </>
   );
 }
