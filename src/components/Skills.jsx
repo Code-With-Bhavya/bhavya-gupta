@@ -83,7 +83,7 @@ export default function Skills() {
                             className='bg-[#03050c] h-full w-full rounded-xl flex flex-col gap-6 justify-center items-center z-10 relative pointer-events-auto'
                         >
                             <li className='flex justify-center items-center flex-col gap-2'>
-                                <div className='flex justify-center items-center w-20 h-20'>
+                                <div className='flex justify-center items-center h-10 w-10 md:w-20 md:h-20'>
                                     <img src={data.src} width={70} height={10} alt={data.title} />
                                 </div>
                                 <div className="flex flex-col justify-center items-center">

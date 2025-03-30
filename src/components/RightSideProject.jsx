@@ -16,9 +16,9 @@ const RightProject = ({ project }) => {
                 className="relative w-full h-[20rem] lg:w-[50rem] lg:h-[50rem] lg:block flex flex-col justify-center">
                 {/* Circular Gradients */}
                 <div className="absolute top-0 left-0 w-full h-full flex justify-between">
-                    <img src="/Gradient.svg" width={5000} height={5000} alt="Gradient" className="ml-[-6.5rem] lg:ml-[-11.5rem]" />
-                    <img src="/Gradient.svg" width={5000} height={5000} alt="Gradient" className="ml-[-49rem] lg:ml-[-39.5rem]" />
-                    <img src="/Gradient.svg" width={5000} height={5000} alt="Gradient" className="ml-[-69.5rem]" />
+                    <img src="/Gradient.svg" width={5000} height={5000} alt="Gradient" className="ml-[-6.5rem] lg:ml-[-11.5rem] overflow-y-hidden" />
+                    <img src="/Gradient.svg" width={5000} height={5000} alt="Gradient" className="ml-[-49rem] lg:ml-[-39.5rem] overflow-y-hidden" />
+                    <img src="/Gradient.svg" width={5000} height={5000} alt="Gradient" className="ml-[-69.5rem] overflow-y-hidden" />
                 </div>
 
                 {/* Image with Background */}
