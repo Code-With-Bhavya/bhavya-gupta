@@ -57,7 +57,7 @@ const Projects = () => {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -100, opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className='w-full flex flex-col gap-5 pointer-events-auto'
+            className='w-full flex flex-col gap-5 pointer-events-auto overflow-y-hidden'
             id='projects'
         >
             <h2 className='text-3xl'>P<span className='text-[#FD6F00]'>ro</span>jects</h2>
