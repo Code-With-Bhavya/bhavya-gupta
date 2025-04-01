@@ -26,7 +26,7 @@ export default function Skills() {
     ];
 
     const librariescards = [
-        { src: "/tailwindlogo.svg", title: "TailwindCSS", level: "Advanced" }, // You're using it heavily in projects
+        { src: "/tailwindlogo.svg", title: "Tailwind", level: "Advanced" }, // You're using it heavily in projects
         { src: "/githublogo.svg", title: "GitHub", level: "Intermediate" }, // Since you're freelancing
         { src: "/framer.svg", title: "Framer", level: "Intermediate" }, // You’ve been using Framer Motion
     ];

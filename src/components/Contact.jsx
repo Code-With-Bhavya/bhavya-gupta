@@ -90,7 +90,7 @@ const Contact = () => {
                     />
                     <label
                         htmlFor="name"
-                        className={`absolute left-4 px-1 transition-all bg-[#03050C] ${formData.name || activeField === "name"
+                        className={`absolute left-4 px-1  text-sm lg:text-base transition-all bg-[#03050C] ${formData.name || activeField === "name"
                             ? "top-[-10px] text-[#FD6F00]"
                             : "top-3 text-gray-400"
                             } peer-focus:top-[-10px] peer-focus:text-[#FD6F00]`}
@@ -113,7 +113,7 @@ const Contact = () => {
                     />
                     <label
                         htmlFor="subject"
-                        className={`absolute left-4 px-1 transition-all bg-[#03050C] ${formData.subject || activeField === "subject"
+                        className={`absolute left-4 px-1 text-sm lg:text-base transition-all bg-[#03050C] ${formData.subject || activeField === "subject"
                             ? "top-[-10px] text-[#FD6F00]"
                             : "top-3 text-gray-400"
                             } peer-focus:top-[-10px] peer-focus:text-[#FD6F00]`}
@@ -134,7 +134,7 @@ const Contact = () => {
                     />
                     <label
                         htmlFor="email"
-                        className={`absolute left-4 px-1 transition-all bg-[#03050C] ${formData.email || activeField === "email"
+                        className={`absolute left-4 px-1 text-sm lg:text-base transition-all bg-[#03050C] ${formData.email || activeField === "email"
                             ? "top-[-10px] text-[#FD6F00]"
                             : "top-3 text-gray-400"
                             } peer-focus:top-[-10px] peer-focus:text-[#FD6F00]`}
@@ -156,7 +156,7 @@ const Contact = () => {
                     />
                     <label
                         htmlFor="message"
-                        className={`absolute left-4 px-1 transition-all bg-[#03050C] ${formData.message || activeField === "message"
+                        className={`absolute left-4 px-1 text-sm lg:text-base transition-all bg-[#03050C] ${formData.message || activeField === "message"
                             ? "top-[-10px] text-[#FD6F00]"
                             : "top-3 text-gray-400"
                             } peer-focus:top-[-10px] peer-focus:text-[#FD6F00]`}
@@ -177,7 +177,7 @@ const Contact = () => {
 
 
 
-            <div className="flex gap-2 w-full lg:text-xl text-[#FD6F00] justify-center items-center">
+            <div className="flex gap-2 w-full text-sm lg:text-xl text-[#FD6F00] justify-center items-center">
                 Other ways to contact me:
                 <div className="flex gap-4 justify-center items-center">
                     <a className="hover:scale-110 hover:shadow-2xl pointer-events-auto transition-all ease-linear" href="mailto:guptabhavya1402@gmail.com"><img src="/mail.svg" width={28} className="cursor-pointer" height={500} alt="gmail" /></a>
