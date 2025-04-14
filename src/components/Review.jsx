@@ -367,9 +367,9 @@ const Review = ({ user }) => {
                   whileTap={index === 1 ? "tap" : ""}
                   className={`px-4 py-7 flex flex-col justify-between w-[398.06px] rounded-2xl border-2 border-[#333333] bg-[#0E1016] relative ${
                     index === 0
-                      ? "h-[391px] absolute left-14"
+                      ? "h-[391px] blur-[1.5px] absolute left-14"
                       : index === 2
-                        ? "h-[391px] absolute right-14"
+                        ? "h-[391px] blur-[1.5px] absolute right-14"
                         : "h-[459px] z-50"
                   }`}
                   style={{
