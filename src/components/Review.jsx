@@ -5,7 +5,7 @@ import { useEffect, useState, useRef } from "react"
 import ReviewCard from "./Review/ReviewCard"
 import NavigationButtons from "./Review/NavigationButtons"
 import BackgroundElements from "./Review/BackgroundElements"
-import { set } from "mongoose"
+import Image from "next/image"
 
 const Review = ({ user }) => {
     const [reviews, setReviews] = useState([])
