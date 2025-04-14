@@ -60,6 +60,7 @@ export default function Navbar() {
         <div className='hidden md:flex gap-6 h-full items-center py-[7px]'>
           <button className='hover:text-[#FD6F00] pointer-events-auto transition-all hover:scale-105 ease-linear' onClick={()=>scrollToSection("skills")}>Skills</button>
           <button className='hover:text-[#FD6F00] pointer-events-auto transition-all hover:scale-105 ease-linear' onClick={()=>scrollToSection("projects")}>Projects</button>
+          <button className='hover:text-[#FD6F00] pointer-events-auto transition-all hover:scale-105 ease-linear' onClick={()=>scrollToSection("review")}>Reviews</button>
           <button className='hover:text-[#FD6F00] pointer-events-auto transition-all hover:scale-105 ease-linear' onClick={()=>scrollToSection("contact")}>Contact Us</button>
           <button className='bg-[#FD6F00] flex pointer-events-auto justify-center items-center font-medium h-full px-[20px] rounded-[2px] hoverbtn transition-all ease-linear'><a href={'https://www.fiverr.com/s/dDW9542'} > Hire Me</a></button>
         </div>
@@ -90,6 +91,7 @@ export default function Navbar() {
           </button>
           <button className='hover:text-[#FD6F00] pointer-events-auto transition-all hover:scale-105 ease-linear' onClick={()=>{toggleSidebar();scrollToSection("skills")}}>Skills</button>
           <button className='hover:text-[#FD6F00] pointer-events-auto transition-all hover:scale-105 ease-linear' onClick={()=>{toggleSidebar();scrollToSection("projects")}}>Projects</button>
+          <button className='hover:text-[#FD6F00] pointer-events-auto transition-all hover:scale-105 ease-linear' onClick={()=>{toggleSidebar();scrollToSection("review")}}>Review</button>
           <button className='hover:text-[#FD6F00] pointer-events-auto transition-all hover:scale-105 ease-linear' onClick={()=>{toggleSidebar();scrollToSection("contact")}}>Contact Us</button>
           <a href={'https://www.fiverr.com/s/dDW9542'} className='bg-[#FD6F00] flex pointer-events-auto justify-center items-center font-medium h-full px-[20px] rounded-[2px] hover:text-[#FD6F00] hover:bg-white hover:scale-105 transition-all ease-linear' onClick={toggleSidebar}> Hire Me</a>
         </div>
