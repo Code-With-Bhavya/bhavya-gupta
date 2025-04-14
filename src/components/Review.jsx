@@ -251,7 +251,7 @@ const Review = ({ user }) => {
       {/* Buttons */}
       <motion.button
         onClick={handlePrev}
-        className="absolute -left-10 top-1/2 -translate-y-1/2 z-50"
+        className="absolute -left-0 top-1/2 -translate-y-1/2 z-50"
         variants={buttonVariants}
         initial="initial"
         whileHover="hover"
@@ -275,7 +275,7 @@ const Review = ({ user }) => {
       </motion.button>
       <motion.button
         onClick={handleNext}
-        className="absolute -right-10 top-1/2 -translate-y-1/2 z-50"
+        className="absolute -right-0 top-1/2 -translate-y-1/2 z-50"
         variants={buttonVariants}
         initial="initial"
         whileHover="hover"
