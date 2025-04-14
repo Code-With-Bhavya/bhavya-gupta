@@ -273,7 +273,7 @@ const ReviewCard = ({ review, cardPosition, direction, isAnimating, animateCente
       exit="exit"
       whileHover="hover"
       whileTap="tap"
-      className={`px-4 py-7 flex flex-col justify-between w-[398.06px] rounded-2xl border-2 border-[#333333] bg-[#0E1016] absolute`}
+      className={`px-4 py-7 flex flex-col justify-between w-[100px] md:w-[398.06px] rounded-2xl border-2 border-[#333333] bg-[#0E1016] absolute`}
       style={{
         transformOrigin: cardPosition === "left" ? "right bottom" : cardPosition === "right" ? "left bottom" : "center",
         height: cardStyle.height,
@@ -281,7 +281,7 @@ const ReviewCard = ({ review, cardPosition, direction, isAnimating, animateCente
       data-card-position={cardPosition}
     >
       <motion.div
-        className="absolute -top-10 left-[40%] w-[69px] h-[545px] bg-[#d9d9d930]"
+        className="absolute -top-10 left-[40%] w-[69px] h-[300px] md:h-[545px] bg-[#d9d9d930]"
         variants={glowVariants}
         initial="initial"
         animate="animate"

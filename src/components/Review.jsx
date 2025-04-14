@@ -10,10 +10,12 @@ import Image from "next/image"
 const Review = ({ user }) => {
     const [reviews, setReviews] = useState([])
     const [startIndex, setStartIndex] = useState(0)
+    const [star, setStar] = useState(0) // Track selected star rating
     const [direction, setDirection] = useState(0) // -1 for left, 1 for right, 0 for initial
     const [isAnimating, setIsAnimating] = useState(false) // Track animation state
     const [animateCenter, setAnimateCenter] = useState(true) // Track if center card animations should run
     const [reviewadded, setReviewadded] = useState(false);
+    const [reviewbyuser, setReviewbyuser] = useState("");
     const visibleCount = 3
     const carouselRef = useRef(null)
     const sectionRef = useRef(null)
@@ -32,15 +34,15 @@ const Review = ({ user }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const review = e.target[0].value
-        if (!review) return
+        
+        if (!reviewbyuser) return
 
         const res = await fetch("/api/review", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ review: review, name: user.name, email: user.email, picture: user.picture }),
+            body: JSON.stringify({ review: reviewbyuser, name: user.name, email: user.email, star: star, picture: user.picture }),
         })
 
         if (res.ok) {
@@ -355,51 +357,97 @@ const Review = ({ user }) => {
                                     initial="hidden"
                                     animate="visible"
                                 >
-                                    <motion.header
-                                        className="flex items-center gap-4"
-                                        variants={headerVariants}
-                                    >
-                                        <motion.div variants={avatarVariants}>
-                                            <Image
-                                                src={user.picture || "/placeholder.svg"}
-                                                alt={user.name}
-                                                width={100}
-                                                height={100}
-                                                className="rounded-full w-[3.25rem] h-[3.25rem] border-2 border-[#333333]"
-                                            />
-                                        </motion.div>
-                                        <div>
-                                            <div className="flex gap-2 items-center">
-                                                <motion.h2
-                                                    className="font-semibold leading-9 text-2xl text-[#FD6F00]"
-                                                    variants={nameVariants}
-                                                >
-                                                    {user.name}
-                                                </motion.h2>
-                                                <motion.img
-                                                    src="/verify.svg"
-                                                    alt="verify"
-                                                    variants={verifyVariants}
-                                                />
-                                            </div>
-                                        </div>
-                                    </motion.header>
-
                                     <motion.form
                                         onSubmit={handleSubmit}
-                                        className="mt-4 flex flex-col gap-4"
+                                        className="mt-4 flex flex-col h-[451px] justify-between"
                                         variants={reviewTextVariants}
                                     >
+                                        <motion.header
+                                            className="flex items-center gap-4"
+                                            variants={headerVariants}
+                                        >
+                                            <motion.div variants={avatarVariants}>
+                                                <Image
+                                                    src={user.picture || "/placeholder.svg"}
+                                                    alt={user.name}
+                                                    width={100}
+                                                    height={100}
+                                                    className="rounded-full w-[3.25rem] h-[3.25rem] border-2 border-[#333333]"
+                                                />
+                                            </motion.div>
+                                            <div>
+                                                <div className="flex gap-2 items-center">
+                                                    <motion.h2
+                                                        className="font-semibold leading-9 text-2xl text-[#FD6F00]"
+                                                        variants={nameVariants}
+                                                    >
+                                                        {user.name}
+                                                    </motion.h2>
+                                                    <motion.img
+                                                        src="/verify.svg"
+                                                        alt="verify"
+                                                        variants={verifyVariants}
+                                                    />
+                                                </div>
+                                                {/* Ask for rating */}
+                                                <motion.div
+                                                    className="flex flex-col gap-2 mb-3"
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    transition={{ delay: 0.5, duration: 0.3 }}
+                                                >
+                                                    <div className="flex gap-2">
+                                                        {[1, 2, 3, 4, 5].map((star) => (
+                                                            <motion.button
+                                                                key={star}
+                                                                type="button"
+                                                                className="text-2xl focus:outline-none"
+                                                                custom={star}
+                                                                variants={starVariants}
+                                                                initial="hidden"
+                                                                animate="visible"
+                                                                whileHover={{
+                                                                    scale: 1.2,
+                                                                    transition: { duration: 0.2 }
+                                                                }}
+                                                                whileTap={{ scale: 0.9 }}
+                                                                onClick={() => {
+                                                                    // Select rating logic here
+                                                                    const stars = document.querySelectorAll('.star-rating');
+                                                                    stars.forEach((s, i) => {
+                                                                        if (i < star) {
+                                                                            s.classList.remove('text-gray-400');
+                                                                            s.classList.add('text-[#FD6F00]');
+                                                                            setStar(i + 1);
+                                                                        } else {
+                                                                            s.classList.remove('text-[#FD6F00]');
+                                                                            s.classList.add('text-gray-400');
+                                                                            setStar(i - 1);
+                                                                        }
+                                                                    });
+                                                                    // You could store this in state if needed
+                                                                }}
+                                                            >
+                                                                <span className="star-rating text-gray-400 hover:text-[#FD6F00] transition-colors">★</span>
+                                                            </motion.button>
+                                                        ))}
+                                                    </div>
+                                                </motion.div>
+                                            </div>
+                                        </motion.header>
+
                                         <textarea
                                             required
                                             placeholder="Write your review here..."
+                                            value={reviewbyuser}
+                                            onChange={(e) => setReviewbyuser(e.target.value)}
                                             className="w-full h-28 p-3 rounded-lg bg-[#2A2A2A] text-white border border-[#FD6F00] focus:outline-none focus:ring-2 focus:ring-[#FD6F00] transition-all"
                                         />
                                         <motion.button
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
                                             type="submit"
-                                            className="bg-[#FD6F00] text-white hover:bg-white hover:text-[#FD6F00] px-4 py-2 rounded-lg shadow-md transition-colors duration-300 font-semibold"
+                                            className="bg-[#FD6F00] text-white hoverbtn px-4 py-2 rounded-lg shadow-md transition-colors duration-300 font-semibold"
                                         >
                                             Submit Review
                                         </motion.button>
