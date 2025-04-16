@@ -13,7 +13,10 @@ export async function POST(request) {
     let reviewDocument = await user.findOne();
 
     // Check if a review with the same gmail already exists
-    const existingReview = await user.findOne({ "reviews.gmail": body.gmail });
+    console.log(body);
+    const existingReview = await user.findOne({ "reviews.email": body.email });
+    
+    console.log(existingReview);
 
     if (existingReview) {
       return Response.json(
@@ -33,6 +36,7 @@ export async function POST(request) {
 
     return Response.json(reviewDocument, { status: 201 });
   } catch (error) {
+    console.error("Error creating review:", error);
     return Response.json({ error: "Failed to create review" }, { status: 400 });
   }
 }

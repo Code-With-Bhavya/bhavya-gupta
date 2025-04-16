@@ -1,47 +1,19 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useMemo } from "react"
+import {getPathVariants, buttonVariants} from "../functions"
 
 const NavigationButtons = ({ handlePrev, handleNext, isAnimating, reviewsCount }) => {
-  // Button hover animations
-  const buttonVariants = {
-    initial: { scale: 1 },
-    hover: {
-      scale: 1.1,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10,
-      },
-    },
-    tap: { scale: 0.9 },
-  }
 
-  const isDisabled = isAnimating || reviewsCount < 3
-
-  // Path animation variants
-  const pathVariants = {
-    initial: {
-      fill: isDisabled ? "#FFFFFF" : "#FD6F00",
-    },
-    animate: {
-      fill: isDisabled ? "#FFFFFF" : ["#FD6F00", "#FF9F4A", "#FD6F00"],
-      transition: {
-        duration: 2,
-        repeat: Number.POSITIVE_INFINITY,
-        ease: "easeInOut",
-      },
-    },
-    hover: {
-      fill: "#FF9F4A",
-    },
-  }
+  const isDisabled = useMemo(() => isAnimating || reviewsCount <= 1, [isAnimating, reviewsCount])
+  const pathVariants = useMemo(() => getPathVariants(isDisabled), [isDisabled])
 
   return (
     <>
       <motion.button
         onClick={handlePrev}
-        className="absolute -left-0 top-1/2 -translate-y-1/2 z-50"
+        className="absolute -left-0 top-1/2 -translate-y-1/2 z-[51]"
         variants={buttonVariants}
         initial="initial"
         whileHover="hover"
@@ -60,7 +32,7 @@ const NavigationButtons = ({ handlePrev, handleNext, isAnimating, reviewsCount }
       </motion.button>
       <motion.button
         onClick={handleNext}
-        className="absolute -right-0 top-1/2 -translate-y-1/2 z-50"
+        className="absolute -right-0 top-1/2 -translate-y-1/2 z-[51]"
         variants={buttonVariants}
         initial="initial"
         whileHover="hover"
