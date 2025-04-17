@@ -133,7 +133,7 @@ const Review = ({ user }) => {
             <BackgroundElements />
 
             {/* Sliding Carousel */}
-            <div className="w-full flex justify-center items-center h-[500px]">
+            <div className="w-full flex justify-center items-center h-[500px] overflow-hidden md:overflow-visible">
                 <div className="w-full flex justify-center items-center relative h-full">
                     <AnimatePresence mode="popLayout">
                         {reviewadded || !user ? getVisibleReviews().map((review) => (

@@ -20,7 +20,7 @@ const ReviewCard = ({ review, direction, cardPosition }) => {
       exit="exit"
       whileHover="hover"
       whileTap="tap"
-      className={`px-4 py-7 flex flex-col justify-between min-w-[30%] md:w-[398.06px] rounded-2xl border-2 border-[#333333] bg-[#0E1016] absolute`}
+      className={`px-4 py-7 flex flex-col justify-between min-w-[30%] md:w-[398.06px] rounded-2xl border-2 border-[#333333] bg-[#0E1016] absolute overflow-hidden`}
       style={{
         transformOrigin: cardPosition === "left" ? "right bottom" : cardPosition === "right" ? "left bottom" : "center",
         height: cardStyle.height,

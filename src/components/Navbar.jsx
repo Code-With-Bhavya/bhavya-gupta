@@ -66,7 +66,7 @@ export default function Navbar() {
         </div>
 
         {/* Hamburger Icon */}
-        <div className='md:hidden fixed right-10 pointer-events-auto'>
+        <div className='md:hidden fixed right-20 pointer-events-auto'>
           <button onClick={toggleSidebar} className='text-[#FD6F00] focus:outline-none'>
             {isSidebarOpen ? (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
