@@ -7,6 +7,13 @@ const Projects = () => {
 
     const projectsData = [
         {
+            title: 'Neuraseek AI',
+            description: 'NeuraSeek AI is a smart platform that helps users quickly find the best tools for their needs. With a bold, modern interface, it lets users search directly or describe their task to get AI-powered recommendations. 🚀✨',
+            tags: ['Next.js', 'Flask', 'Python', 'Framer'],
+            imageUrl: '/neura.png',
+            projectUrl: 'https://neuraseekai.vercel.app/'
+        },
+        {
             title: 'Guess The Drawing',
             description: '"Guess the Drawing" is a fun game where players sketch while others guess in real time. It features multiplayer mode, custom word lists, and leaderboards. With smooth animations and an interactive canvas, it makes drawing and guessing exciting! 🎨✨',
             tags: ['Next.js', 'Socket.io', 'Python', 'Framer'],
