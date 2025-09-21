@@ -7,7 +7,7 @@ const Projects = () => {
 
     const projectsData = [
         {
-            title: 'Functionable School Website',
+            title: 'School Web Portal',
             description: 'A modern, sleek , parent-friendly school website with functionable Admin Panel and Database integration, providing a seamless experience for parents and students.',
             tags: ['Next.js', 'Tailwind', 'MongoDB'],
             imageUrl: '/ss.png',
