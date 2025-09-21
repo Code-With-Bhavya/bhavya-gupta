@@ -7,6 +7,13 @@ const Projects = () => {
 
     const projectsData = [
         {
+            title: 'Functionable School Website',
+            description: 'A modern, sleek , parent-friendly school website with functionable Admin Panel and Database integration, providing a seamless experience for parents and students.',
+            tags: ['Next.js', 'Tailwind', 'MongoDB'],
+            imageUrl: '/ss.png',
+            projectUrl: 'https://sainikschool820.vercel.app/'
+        },
+        {
             title: 'Neuraseek AI',
             description: 'NeuraSeek AI is a smart platform that helps users quickly find the best tools for their needs. With a bold, modern interface, it lets users search directly or describe their task to get AI-powered recommendations. 🚀✨',
             tags: ['Next.js', 'Flask', 'Python', 'Framer'],
